@@ -7,19 +7,20 @@
     <title>Fitness Tracker</title>
     <link rel="shortcut icon" type="image/png" href="icons/fitness.png">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="css/animate.css">
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <div class="shell">
-        <div class="overview-div">
+        <div class="overview-div animated bounceInDown">
             <h1 class="overview-div__h1">Welcome!</h1>
             <p class="overview-div__p">Overview of your activity</p>
         </div>
 
-        <div class="daily-overview-div">
+        <div class="daily-overview-div animated fadeInDown">
             <div class="div-icon">
-                <i class="material-icons">chevron_left</i>
+                <i class="material-icons" id="back-icon">chevron_left</i>
             </div>
             <div class="div-info">
                 <h1 class="div-info__h1" id="day">Tuesday</h1>
@@ -27,7 +28,7 @@
             </div>
         </div>
 
-        <div class="days-div">
+        <div class="days-div animated zoomIn">
             <div class="day">
                 <span class="day--number">4</span>
                 <span class="day--title">Mon</span>
@@ -51,7 +52,7 @@
         </div>
 
         <div class="stats-div">
-            <div class="activity-div">
+            <div class="activity-div animated bounceInLeft">
                 <div class="helper-div">
                     <div class="div-icon">
                         <i class="material-icons">timer</i>
@@ -66,7 +67,7 @@
                 </div>
             </div>
 
-            <div class="steps-div">
+            <div class="steps-div animated bounceInRight">
                 <div class="helper-div">
                     <div class="div-icon">
                         <i class="material-icons">directions_run</i>
@@ -81,7 +82,7 @@
                 </div>
             </div>
 
-            <div class="calories-div">
+            <div class="calories-div animated bounceInUp">
                 <div class="helper-div">
                     <div class="div-icon">
                         <i class="material-icons">whatshot</i>
@@ -97,7 +98,7 @@
             </div>
         </div>
 
-        <div class="daily-stats-div">
+        <div class="daily-stats-div animated fadeInUp">
             <div class="circle-div">
                 <div class="div-icon">
                     <i class="material-icons">directions_run</i>
@@ -127,5 +128,7 @@
             </div>
         </div>
     </div>
+
+    <script src="js/app.js"></script>
 </body>
 </html>
