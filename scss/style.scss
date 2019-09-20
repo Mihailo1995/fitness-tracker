@@ -3,7 +3,7 @@ $color-cg-blue: #008aa2;
 $color-white: #fff;
 $color-amazonite: #00b6a3;
 $color-roman-silver: #898694;
-$color-rgba-black: rgba(0, 0, 0, 0.1);
+$color-black: #000;
 $color-eerie-black: #151c1f;
 $color-ash-gray: #b3b3b3;
 $color-isabelline: #ebebeb;
@@ -13,12 +13,12 @@ $color-isabelline: #ebebeb;
     src: url("../fonts/HelveticaNeue.ttf") format("truetype");
 }
 @font-face {
-    font-family: "Helvetica Neue, Bold";
-    src: url("../fonts/HelveticaNeueBd.ttf") format("truetype");
-}
-@font-face {
     font-family: "Helvetica Neue, Medium";
     src: url("../fonts/HelveticaNeueMed.ttf") format("truetype");
+}
+@font-face {
+    font-family: "Helvetica Neue, Bold";
+    src: url("../fonts/HelveticaNeueBd.ttf") format("truetype");
 }
 
 *,
@@ -35,10 +35,15 @@ body {
     width: 375px;
     height: 812px;
     margin: 0 auto;
-    padding: 17.5px;
+    padding: 17.5px 17.5px 0;
     background-image: linear-gradient(to bottom, $color-keppel, $color-cg-blue);
 }
 
+/*  
+▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓ 
+▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓ Overview div ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
+▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓              ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
+▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓*/
 .overview-div {
     // width: 340px;
     width: 100%;
@@ -67,8 +72,61 @@ body {
         font-weight: 500;
         letter-spacing: 0.24px;
     }
+
+    // display: none;
 }
 
+/*  
+▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓ 
+▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓ Dayly Overview div ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
+▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓                    ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
+▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓*/
+.daily-overview-div {
+    // width: 340px;
+    width: 100%;
+    height: 117px;
+    padding: 15px 10px;
+    border-radius: 28px;
+    background-color: rgba($color-white, 0.25);
+    color: $color-white;
+    display: flex;
+
+    .div-icon {
+        margin-right: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        i.material-icons {
+            font-size: 40px;
+            cursor: pointer;
+        }
+    }
+
+    .div-info {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        &__h1 {
+            @extend .overview-div__h1;
+            color: $color-white;
+        }
+
+        &__p {
+            @extend .overview-div__p;
+            color: rgba($color-white, 0.7);
+        }
+    }
+
+    display: none;
+}
+
+/*  
+▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓ 
+▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓ Days div ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
+▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓          ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
+▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓*/
 .days-div {
     // width: 340px;
     width: 100%;
@@ -95,6 +153,7 @@ body {
         &:active {
             background-color: $color-white;
             color: $color-amazonite;
+            box-shadow: 0 3px 9px rgba($color-black, 0.1);
         }
 
         & > span {
@@ -109,6 +168,11 @@ body {
     }
 }
 
+/*  
+▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓ 
+▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓ Stats div ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
+▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓           ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
+▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓*/
 .stats-div {
     // width: 340px;
     width: 100%;
@@ -125,6 +189,22 @@ body {
 
     .activity-div {
         height: 184px;
+        display: flex;
+        align-items: flex-start;
+
+        .helper-div {
+            margin-top: 8px;
+        }
+
+        .div-stat {
+            margin-top: 5px;
+            display: flex;
+            flex-direction: column;
+
+            .number-h2 {
+                margin-top: 30px;
+            }
+        }
     }
 
     .steps-div {
@@ -177,8 +257,118 @@ body {
             letter-spacing: 0.91px;
         }
     }
+
+    // display: none;
 }
 
+/*  
+▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓ 
+▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓ Daily Stats div ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
+▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓                 ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
+▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓*/
 .daily-stats-div {
+    // width: 340px;
+    width: 100%;
+    height: 547px;
+    padding: 40px 10px 30px;
+    border-radius: 28px 28px 0 0;
+    background-color: $color-white;
+    color: $color-eerie-black;
+    box-shadow: 0 3px 9px rgba($color-black, 0.1);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .circle-div {
+        width: 231px;
+        height: 231px;
+        padding: 30px;
+        border: 8px solid $color-amazonite;
+        border-radius: 50%;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        // justify-content: center;
+
+        .div-icon {
+            width: 40px;
+            height: 40px;
+            // margin-right: 15px;
+            border-radius: 50%;
+            background-color: rgba($color-amazonite, 0.25);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            i.material-icons {
+                color: $color-white;
+            }
+        }
+
+        .label-h3 {
+            margin: 8px 0 10px;
+            font-size: 20px;
+            letter-spacing: 0.6px;
+        }
+
+        .number-h1 {
+            font-family: "Helvetica Neue, Bold";
+            font-size: 48px;
+            letter-spacing: 1.15px;
+        }
+    }
+
+    .motivation-div {
+        margin-top: 30px;
+        text-align: center;
+
+        .label-h3 {
+            margin-bottom: 5px;
+            font-size: 20px;
+            letter-spacing: 0.6px;
+        }
+
+        .label-h2 {
+            font-family: "Helvetica Neue, Bold";
+            font-size: 40px;
+            letter-spacing: 0.96px;
+        }
+    }
+
+    .results-div {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        margin-top: auto;
+
+        & > div {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            .label-h4 {
+                margin-bottom: 5px;
+                color: $color-ash-gray;
+                font-size: 18px;
+                letter-spacing: 0.54px;
+            }
+
+            .number-h2 {
+                color: $color-amazonite;
+                font-family: "Helvetica Neue, Bold";
+                font-size: 40px;
+                letter-spacing: 0.96px;
+            }
+        }
+
+        .cal-div {
+            border-left: 1px solid $color-isabelline;
+            border-right: 1px solid $color-isabelline;
+        }
+    }
+
     display: none;
 }

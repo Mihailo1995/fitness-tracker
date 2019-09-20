@@ -1,16 +1,17 @@
+@charset "UTF-8";
 @font-face {
   font-family: "Helvetica Neue";
   src: url("../fonts/HelveticaNeue.ttf") format("truetype");
 }
 
 @font-face {
-  font-family: "Helvetica Neue, Bold";
-  src: url("../fonts/HelveticaNeueBd.ttf") format("truetype");
+  font-family: "Helvetica Neue, Medium";
+  src: url("../fonts/HelveticaNeueMed.ttf") format("truetype");
 }
 
 @font-face {
-  font-family: "Helvetica Neue, Medium";
-  src: url("../fonts/HelveticaNeueMed.ttf") format("truetype");
+  font-family: "Helvetica Neue, Bold";
+  src: url("../fonts/HelveticaNeueBd.ttf") format("truetype");
 }
 
 *,
@@ -28,11 +29,16 @@ body {
   width: 375px;
   height: 812px;
   margin: 0 auto;
-  padding: 17.5px;
+  padding: 17.5px 17.5px 0;
   background-image: -webkit-gradient(linear, left top, left bottom, from(#34c7a0), to(#008aa2));
   background-image: linear-gradient(to bottom, #34c7a0, #008aa2);
 }
 
+/*  
+▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓ 
+▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓ Overview div ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
+▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓              ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
+▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓*/
 .overview-div {
   width: 100%;
   height: 117px;
@@ -51,7 +57,7 @@ body {
           justify-content: center;
 }
 
-.overview-div__h1 {
+.overview-div__h1, .daily-overview-div .div-info__h1 {
   margin-bottom: 10px;
   color: #00b6a3;
   font-family: "Helvetica Neue, Bold";
@@ -59,7 +65,7 @@ body {
   letter-spacing: 0.48px;
 }
 
-.overview-div__p {
+.overview-div__p, .daily-overview-div .div-info__p {
   color: #898694;
   font-family: "Helvetica Neue, Medium";
   font-size: 16px;
@@ -67,6 +73,68 @@ body {
   letter-spacing: 0.24px;
 }
 
+/*  
+▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓ 
+▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓ Dayly Overview div ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
+▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓                    ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
+▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓*/
+.daily-overview-div {
+  width: 100%;
+  height: 117px;
+  padding: 15px 10px;
+  border-radius: 28px;
+  background-color: rgba(255, 255, 255, 0.25);
+  color: #fff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  display: none;
+}
+
+.daily-overview-div .div-icon {
+  margin-right: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.daily-overview-div .div-icon i.material-icons {
+  font-size: 40px;
+  cursor: pointer;
+}
+
+.daily-overview-div .div-info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.daily-overview-div .div-info__h1 {
+  color: #fff;
+}
+
+.daily-overview-div .div-info__p {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/*  
+▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓ 
+▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓ Days div ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
+▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓          ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
+▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓*/
 .days-div {
   width: 100%;
   height: 60px;
@@ -108,6 +176,8 @@ body {
 .days-div .day:hover, .days-div .day:active {
   background-color: #fff;
   color: #00b6a3;
+  -webkit-box-shadow: 0 3px 9px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 3px 9px rgba(0, 0, 0, 0.1);
 }
 
 .days-div .day > span {
@@ -120,6 +190,11 @@ body {
   letter-spacing: 1.2px;
 }
 
+/*  
+▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓ 
+▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓ Stats div ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
+▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓           ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
+▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓*/
 .stats-div {
   width: 100%;
 }
@@ -139,6 +214,31 @@ body {
 
 .stats-div .activity-div {
   height: 184px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+.stats-div .activity-div .helper-div {
+  margin-top: 8px;
+}
+
+.stats-div .activity-div .div-stat {
+  margin-top: 5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.stats-div .activity-div .div-stat .number-h2 {
+  margin-top: 30px;
 }
 
 .stats-div .steps-div {
@@ -198,7 +298,141 @@ body {
   letter-spacing: 0.91px;
 }
 
+/*  
+▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓ 
+▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓ Daily Stats div ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
+▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓                 ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
+▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓*/
 .daily-stats-div {
+  width: 100%;
+  height: 547px;
+  padding: 40px 10px 30px;
+  border-radius: 28px 28px 0 0;
+  background-color: #fff;
+  color: #151c1f;
+  -webkit-box-shadow: 0 3px 9px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 3px 9px rgba(0, 0, 0, 0.1);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   display: none;
+}
+
+.daily-stats-div .circle-div {
+  width: 231px;
+  height: 231px;
+  padding: 30px;
+  border: 8px solid #00b6a3;
+  border-radius: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.daily-stats-div .circle-div .div-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: rgba(0, 182, 163, 0.25);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.daily-stats-div .circle-div .div-icon i.material-icons {
+  color: #fff;
+}
+
+.daily-stats-div .circle-div .label-h3 {
+  margin: 8px 0 10px;
+  font-size: 20px;
+  letter-spacing: 0.6px;
+}
+
+.daily-stats-div .circle-div .number-h1 {
+  font-family: "Helvetica Neue, Bold";
+  font-size: 48px;
+  letter-spacing: 1.15px;
+}
+
+.daily-stats-div .motivation-div {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.daily-stats-div .motivation-div .label-h3 {
+  margin-bottom: 5px;
+  font-size: 20px;
+  letter-spacing: 0.6px;
+}
+
+.daily-stats-div .motivation-div .label-h2 {
+  font-family: "Helvetica Neue, Bold";
+  font-size: 40px;
+  letter-spacing: 0.96px;
+}
+
+.daily-stats-div .results-div {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-top: auto;
+}
+
+.daily-stats-div .results-div > div {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.daily-stats-div .results-div > div .label-h4 {
+  margin-bottom: 5px;
+  color: #b3b3b3;
+  font-size: 18px;
+  letter-spacing: 0.54px;
+}
+
+.daily-stats-div .results-div > div .number-h2 {
+  color: #00b6a3;
+  font-family: "Helvetica Neue, Bold";
+  font-size: 40px;
+  letter-spacing: 0.96px;
+}
+
+.daily-stats-div .results-div .cal-div {
+  border-left: 1px solid #ebebeb;
+  border-right: 1px solid #ebebeb;
 }
 /*# sourceMappingURL=style.css.map */
