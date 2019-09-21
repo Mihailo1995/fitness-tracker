@@ -148,6 +148,7 @@ body {
         flex-direction: column;
         align-items: center;
         justify-content: center;
+        display: none;
 
         &:hover,
         &:active {
@@ -202,7 +203,8 @@ body {
             flex-direction: column;
 
             .number-h2 {
-                margin-top: 30px;
+                // margin-top: 30px;
+                margin-top: 8px;
             }
         }
     }

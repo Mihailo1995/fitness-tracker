@@ -12,13 +12,13 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <div class="shell">
-        <div class="overview-div animated bounceInDown">
+    <div class="shell animated fadeIn">
+        <div class="overview-div">
             <h1 class="overview-div__h1">Welcome!</h1>
             <p class="overview-div__p">Overview of your activity</p>
         </div>
 
-        <div class="daily-overview-div animated fadeInDown">
+        <div class="daily-overview-div animated bounceInDown">
             <div class="div-icon">
                 <i class="material-icons" id="back-icon">chevron_left</i>
             </div>
@@ -28,31 +28,15 @@
             </div>
         </div>
 
-        <div class="days-div animated zoomIn">
+        <div class="days-div">
             <div class="day">
                 <span class="day--number">4</span>
-                <span class="day--title">Mon</span>
-            </div>
-            <div class="day">
-                <span class="day--number">5</span>
-                <span class="day--title">Tue</span>
-            </div>
-            <div class="day">
-                <span class="day--number">6</span>
-                <span class="day--title">Wed</span>
-            </div>
-            <div class="day">
-                <span class="day--number">7</span>
-                <span class="day--title">Thu</span>
-            </div>
-            <div class="day">
-                <span class="day--number">8</span>
-                <span class="day--title">Fri</span>
+                <span class="day--title">pon</span>
             </div>
         </div>
 
         <div class="stats-div">
-            <div class="activity-div animated bounceInLeft">
+            <div class="activity-div">
                 <div class="helper-div">
                     <div class="div-icon">
                         <i class="material-icons">timer</i>
@@ -63,11 +47,12 @@
                         <h3 class="labels--h3">Activity</h3>
                         <h4 class="labels--h4">Average</h4>
                     </div>
-                    <h2 class="number-h2">6h 40min</h2>
+                    <h2 class="number-h2" id="average-time">6h 40min</h2>
+                    <h2 class="number-h2" id="average-distance">3 km</h2>
                 </div>
             </div>
 
-            <div class="steps-div animated bounceInRight">
+            <div class="steps-div">
                 <div class="helper-div">
                     <div class="div-icon">
                         <i class="material-icons">directions_run</i>
@@ -78,11 +63,11 @@
                         <h3 class="labels--h3">Steps</h3>
                         <h4 class="labels--h4">Total</h4>
                     </div>
-                    <h2 class="number-h2">7,540</h2>
+                    <h2 class="number-h2" id="total-steps">7,540</h2>
                 </div>
             </div>
 
-            <div class="calories-div animated bounceInUp">
+            <div class="calories-div">
                 <div class="helper-div">
                     <div class="div-icon">
                         <i class="material-icons">whatshot</i>
@@ -93,12 +78,12 @@
                         <h3 class="labels--h3">Calories</h3>
                         <h4 class="labels--h4">Total Burned</h4>
                     </div>
-                    <h2 class="number-h2">340</h2>
+                    <h2 class="number-h2" id="total-cal-burned">340</h2>
                 </div>
             </div>
         </div>
 
-        <div class="daily-stats-div animated fadeInUp">
+        <div class="daily-stats-div animated bounceInUp">
             <div class="circle-div">
                 <div class="div-icon">
                     <i class="material-icons">directions_run</i>
@@ -129,6 +114,7 @@
         </div>
     </div>
 
+    <script src="js/jquery-3.4.1.min.js"></script>
     <script src="js/app.js"></script>
 </body>
 </html>
