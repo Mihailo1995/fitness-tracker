@@ -39,9 +39,10 @@ body {
 
 .shell {
     width: 37.5rem;
-    height: 81.2rem;
+    height: auto;
+    // height: 81.2rem;
     margin: 0 auto;
-    padding: 2rem 1.75rem 0;
+    padding: 2rem 1.75rem;
     background-image: linear-gradient(to bottom, $color-keppel, $color-cg-blue);
 }
 
@@ -75,8 +76,6 @@ body {
         font-weight: 500;
         letter-spacing: 0.024rem;
     }
-
-    // display: none;
 }
 
 /*  
@@ -132,7 +131,7 @@ body {
 .days-div {
     width: 100%;
     height: 6rem;
-    margin: 3rem auto;
+    margin: 1.75rem auto;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -177,7 +176,6 @@ body {
 ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓*/
 .stats-div {
     width: 100%;
-    margin-bottom: 2rem;
 
     & > * {
         padding: 1.75rem;
@@ -257,8 +255,6 @@ body {
             letter-spacing: 0.091rem;
         }
     }
-
-    // display: none;
 }
 
 /*  
@@ -268,9 +264,10 @@ body {
 ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓*/
 .daily-stats-div {
     width: 100%;
-    height: 55.45rem;
-    padding: 4rem 1rem 3rem;
-    border-radius: 2.8rem 2.8rem 0 0;
+    height: auto;
+    // height: 55.45rem;
+    padding: 3rem 1rem;
+    border-radius: 2.8rem;
     background-color: $color-white;
     color: $color-eerie-black;
     box-shadow: 0 0.3rem 0.9rem rgba($color-black, 0.1);
@@ -338,7 +335,7 @@ body {
         width: 100%;
         display: flex;
         justify-content: space-between;
-        margin-top: auto;
+        margin-top: 3rem;
 
         & > div {
             width: 100%;

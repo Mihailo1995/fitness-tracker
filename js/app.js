@@ -1,11 +1,11 @@
 /******************* UI *******************/
 const UI = (function () {
 
-
-
     // Draw data on the screen
     const drawData = (data) => {
-        console.log(data);
+        // console.log(data);
+        const dailyDateDiv = document.querySelector(".daily-date-div");
+        const dailyStatsDiv = document.querySelector(".daily-stats-div");
         const daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
         const months = ["January", "February", "March", "April", "May", "June",
             "July", "August", "September", "October", "November", "December"
@@ -61,8 +61,8 @@ const UI = (function () {
 
         // Show statistics by day
         const _showDailyStats = (n) => {
-            const dailyDateDiv = document.querySelector(".daily-date-div");
-            const dailyStatsDiv = document.querySelector(".daily-stats-div");
+            // const dailyDateDiv = document.querySelector(".daily-date-div");
+            // const dailyStatsDiv = document.querySelector(".daily-stats-div");
             document.querySelector(".welcome-div").style.display = "none";
             document.querySelector(".stats-div").style.display = "none";
             dailyDateDiv.style.display = "flex";

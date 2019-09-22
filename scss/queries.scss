@@ -15,6 +15,13 @@
    0 -  320px (20em):                           iphone SE
 */
 
+/*-------------------------------- < 1800px --------------------------------*/
+// @media only screen and (max-width: 112.5em) {
+//     .results-div {
+//         margin-top: 3rem;
+//     }
+// }
+
 /*-------------------------------- < 480px --------------------------------*/
 @media only screen and (max-width: 30em) {
     html {
@@ -25,18 +32,8 @@
         height: 100vh;
         overflow-y: auto;
     }
-    .days-div {
-        margin: 1.75rem auto;
-    }
     .daily-stats-div {
-        height: auto;
-        margin-bottom: 1.8rem;
-        padding: 3rem 1rem;
-        border-radius: 2.8rem;
-
-        .results-div {
-            margin-top: 3rem;
-        }
+        margin-bottom: 2rem;
     }
 }
 
@@ -44,6 +41,9 @@
 @media only screen and (max-width: 23.4375em) and (min-height: 50.75em) {
     html {
         font-size: 62.5%;
+    }
+    .shell {
+        padding: 2rem 1.75rem 0;
     }
     .days-div {
         margin: 3rem auto;
