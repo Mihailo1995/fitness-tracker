@@ -22,13 +22,16 @@
   .shell {
     width: 100vw;
     height: 100vh;
-    overflow: hidden;
+    overflow-y: auto;
   }
   .days-div {
     margin: 1.75rem auto;
   }
   .daily-stats-div {
+    height: auto;
+    margin-bottom: 1.8rem;
     padding: 3rem 1rem;
+    border-radius: 2.8rem;
   }
   .daily-stats-div .results-div {
     margin-top: 3rem;
@@ -45,7 +48,9 @@
   }
   .daily-stats-div {
     height: 55.45rem;
+    margin-bottom: 0;
     padding: 4rem 1rem 3rem;
+    border-radius: 2.8rem 2.8rem 0 0;
   }
   .daily-stats-div .results-div {
     margin-top: auto;

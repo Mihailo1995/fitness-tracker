@@ -1,32 +1,15 @@
 /******************* UI *******************/
 const UI = (function () {
-    // Show statistics by day
-    const _showDailyStats = () => {
-        document.querySelector(".overview-div").style.display = "none";
-        document.querySelector(".stats-div").style.display = "none";
-        document.querySelector(".daily-overview-div").style.display = "flex";
-        document.querySelector(".daily-stats-div").style.display = "flex";
-    }
 
-    // Go back to the home screen
-    const _backToHomeScreen = () => {
-        document.querySelector(".overview-div").classList.add("animated", "bounceInLeft");
-        document.querySelector(".activity-div").classList.add("animated", "bounceInRight");
-        document.querySelector(".steps-div").classList.add("animated", "bounceInLeft");
-        document.querySelector(".calories-div").classList.add("animated", "bounceInUp");
-        document.querySelector(".overview-div").style.display = "flex";
-        document.querySelector(".stats-div").style.display = "block";
-        document.querySelector(".daily-overview-div").style.display = "none";
-        document.querySelector(".daily-stats-div").style.display = "none";
-    }
 
-    // document.querySelectorAll(".day").forEach(e => e.addEventListener("click", _showDailyStats));
-    document.querySelector("#back-icon").addEventListener("click", _backToHomeScreen);
 
     // Draw data on the screen
     const drawData = (data) => {
         console.log(data);
         const daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+        const months = ["January", "February", "March", "April", "May", "June",
+            "July", "August", "September", "October", "November", "December"
+        ];
         // let day, averageActivity, totalSteps, totalCalBurned, dailySteps, dailyKm, dailyCal, dailyHours;
         // data.forEach((obj, i) => console.log(i, obj));
         // const dataLength = Object.keys(data).length; // 16
@@ -37,7 +20,7 @@ const UI = (function () {
             return total + num.steps;
         }, 0);
         // Total Calories Burned (629)
-        let totalCalBurned = parseInt(totalSteps * 0.05);
+        let totalCalBurned = Math.round(totalSteps * 0.05);
         // Total Seconds (6295.5)
         let totalSeconds = parseInt(totalSteps * 0.5);
         // Average daily time (1h 45min)
@@ -50,39 +33,19 @@ const UI = (function () {
         document.querySelector("#total-steps").textContent = totalSteps.toLocaleString();
         document.querySelector("#total-cal-burned").textContent = totalCalBurned;
 
-        let mondaySteps = data.filter(obj => (new Date(obj.timestamp).getDay() === 1))
-            .map(obj => obj.steps)
-            .reduce((total, num) => total + num, 0);
-        console.log(mondaySteps);
-        let tuesdaySteps = data.filter(obj => (new Date(obj.timestamp).getDay() === 2))
-            .map(obj => obj.steps)
-            .reduce((total, num) => total + num, 0);
-        console.log(tuesdaySteps);
-        let wednesdaySteps = data.filter(obj => (new Date(obj.timestamp).getDay() === 3))
-            .map(obj => obj.steps)
-            .reduce((total, num) => total + num, 0);
-        console.log(wednesdaySteps);
-        let thursdaySteps = data.filter(obj => (new Date(obj.timestamp).getDay() === 4))
-            .map(obj => obj.steps)
-            .reduce((total, num) => total + num, 0);
-        console.log(thursdaySteps);
-        let fridaySteps = data.filter(obj => (new Date(obj.timestamp).getDay() === 5))
-            .map(obj => obj.steps)
-            .reduce((total, num) => total + num, 0);
-        console.log(fridaySteps);
-
         // Days of Month (10 - 14)
         let daysOfMonthArr = [];
         data.forEach((obj, i) => daysOfMonthArr = [...daysOfMonthArr, new Date(data[i].timestamp).getDate()]);
-        let daysOfMonthSet = new Set(daysOfMonthArr); // Set(5) {10, 11, 12, 13, 14}
-        let daysOfMonthSetArr = [...daysOfMonthSet]; // (5) [10, 11, 12, 13, 14]
+        let daysOfMonthSet = new Set(daysOfMonthArr); // ► Set(5) {10, 11, 12, 13, 14}
+        let daysOfMonthSetArr = [...daysOfMonthSet]; // ► (5) [10, 11, 12, 13, 14]
 
         // Days of Week (MON - FRI)
         let daysArr = [];
         data.forEach((obj, i) => daysArr = [...daysArr, new Date(data[i].timestamp).getDay()]);
-        let daysSet = new Set(daysArr); // Set(5) {1, 2, 3, 4, 5}
-        let daysSetArr = [...daysSet]; // (5) [1, 2, 3, 4, 5]
+        let daysSet = new Set(daysArr); // ► Set(5) {1, 2, 3, 4, 5}
+        let daysSetArr = [...daysSet]; // ► (5) [1, 2, 3, 4, 5]
 
+        // for each div.day set its day of month (10 - 14) and day of week (MON - FRI)
         for (let i = 0; i < daysOfMonthSetArr.length; i++) {
             const daysDiv = document.querySelector(".days-div");
             let dayClone = daysDiv.children[0].cloneNode(true);
@@ -96,6 +59,94 @@ const UI = (function () {
             }
         }
 
+        // Show statistics by day
+        const _showDailyStats = (n) => {
+            const dailyDateDiv = document.querySelector(".daily-date-div");
+            const dailyStatsDiv = document.querySelector(".daily-stats-div");
+            document.querySelector(".welcome-div").style.display = "none";
+            document.querySelector(".stats-div").style.display = "none";
+            dailyDateDiv.style.display = "flex";
+            dailyStatsDiv.style.display = "flex";
+            dailyDateDiv.classList.add("animated", "bounceInDown");
+            dailyStatsDiv.classList.add("animated", "bounceInUp");
+
+            const filterStepsByDay = (n) => {
+                let stepsByDay = data.filter(obj => (new Date(obj.timestamp).getDay() === n))
+                    .map(obj => obj.steps)
+                    .reduce((total, num) => total + num, 0);
+                console.log(stepsByDay);
+                return stepsByDay;
+            }
+
+            let dailySteps = filterStepsByDay(n);
+
+            dailyDateDiv.innerHTML = `
+                <div class="div-icon">
+                    <i class="material-icons" id="back-icon">chevron_left</i>
+                </div>
+                <div class="div-info">
+                    <h1 class="div-info__h1" id="day">${daysOfWeek[n]}</h1>
+                    <p class="div-info__p" id="date">
+                    ${months[new Date(data[n].timestamp).getMonth()]} ${daysOfMonthSetArr[n - 1]}, ${new Date(data[n].timestamp).getFullYear()}.
+                    </p>
+                </div>
+            `;
+
+            dailyStatsDiv.innerHTML = `
+                <div class="circle-div">
+                    <div class="div-icon">
+                        <i class="material-icons">directions_run</i>
+                    </div>
+                    <h3 class="label-h3">Steps</h3>
+                    <h1 class="number-h1" id="day-steps">${dailySteps.toLocaleString()}</h1>
+                </div>
+
+                <div class="motivation-div">
+                    <h3 class="label-h3">Very good</h3>
+                    <h2 class="label-h2">Keep going!</h2>
+                </div>
+
+                <div class="results-div">
+                    <div class="km-div">
+                        <h4 class="label-h4">km</h4>
+                        <h2 class="number-h2">${parseFloat((dailySteps * 0.762 / 1000).toFixed(1))}</h2>
+                    </div>
+                    <div class="cal-div">
+                        <h4 class="label-h4">cal</h4>
+                        <h2 class="number-h2">${Math.round(dailySteps * 0.05)}</h2>
+                    </div>
+                    <div class="hours-div">
+                        <h4 class="label-h4">min</h4>
+                        <h2 class="number-h2">${Math.round(dailySteps * 0.5 / 60)}</h2>
+                    </div>
+                </div>
+            `;
+
+            // Go back to the home screen
+            const _backToHomeScreen = () => {
+                document.querySelector(".welcome-div").classList.add("animated", "bounceInLeft");
+                document.querySelector(".activity-div").classList.add("animated", "bounceInRight");
+                document.querySelector(".steps-div").classList.add("animated", "bounceInLeft");
+                document.querySelector(".calories-div").classList.add("animated", "bounceInUp");
+                document.querySelector(".welcome-div").style.display = "flex";
+                document.querySelector(".stats-div").style.display = "block";
+                document.querySelector(".daily-date-div").style.display = "none";
+                document.querySelector(".daily-stats-div").style.display = "none";
+            }
+
+            document.querySelector("#back-icon").addEventListener("click", _backToHomeScreen);
+        }
+
+        // const filterStepsByDay = (num) => {
+        //     let stepsByDay = data.filter(obj => (new Date(obj.timestamp).getDay() === num))
+        //         .map(obj => obj.steps)
+        //         .reduce((total, num) => total + num, 0);
+        //     console.log(stepsByDay);
+        //     return stepsByDay;
+        // }
+
+        // daysSetArr.forEach(day => filterStepsByDay(day));
+
         // Day divs array
         const btnsArr = [...document.querySelectorAll(".day")];
         // remove cloned div.day with style="diplay: none"
@@ -107,11 +158,12 @@ const UI = (function () {
         for (let i = 0; i < btnsArr.length; i++) {
             btnsArr[i].addEventListener("click", (e) => {
                 if (e.currentTarget.classList.contains("day")) {
-                    console.log(e.currentTarget);
-                    _showDailyStats();
+                    // console.log(e.currentTarget);
+                    _showDailyStats(i + 1);
                 }
             });
         }
+
     }
 
     return {
@@ -121,7 +173,7 @@ const UI = (function () {
 
 /******************* Data *******************/
 const Data = (function () {
-    const fetchData = () => {
+    const getData = () => {
         fetch("https://api.myjson.com/bins/1gwnal")
             .then(response => response.json())
             .then(data => UI.drawData(data))
@@ -129,11 +181,11 @@ const Data = (function () {
     }
 
     return {
-        fetchData
+        getData
     }
 })();
 
 /******************* Init *******************/
 window.onload = function () {
-    Data.fetchData();
+    Data.getData();
 }

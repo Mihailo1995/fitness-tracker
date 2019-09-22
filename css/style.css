@@ -43,10 +43,10 @@ body {
 
 /*  
 ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓ 
-▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓ Overview div ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
-▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓              ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
+▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓ Welcome div ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
+▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓             ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
 ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓*/
-.overview-div {
+.welcome-div {
   width: 100%;
   height: 11.7rem;
   padding: 1.5rem 3rem;
@@ -64,7 +64,7 @@ body {
           justify-content: center;
 }
 
-.overview-div__h1, .daily-overview-div .div-info__h1 {
+.welcome-div__h1, .daily-date-div .div-info__h1 {
   margin-bottom: 1rem;
   color: #00b6a3;
   font-family: "Helvetica Neue, Bold";
@@ -72,7 +72,7 @@ body {
   letter-spacing: 0.048rem;
 }
 
-.overview-div__p, .daily-overview-div .div-info__p {
+.welcome-div__p, .daily-date-div .div-info__p {
   color: #898694;
   font-family: "Helvetica Neue, Medium";
   font-size: 1.6rem;
@@ -82,10 +82,10 @@ body {
 
 /*  
 ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓ 
-▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓ Dayly Overview div ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
-▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓                    ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
+▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓ Daily Date div ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
+▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓                ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
 ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓*/
-.daily-overview-div {
+.daily-date-div {
   width: 100%;
   height: 11.7rem;
   padding: 1.5rem 1rem;
@@ -98,7 +98,7 @@ body {
   display: none;
 }
 
-.daily-overview-div .div-icon {
+.daily-date-div .div-icon {
   margin-right: 1rem;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -111,12 +111,12 @@ body {
           justify-content: center;
 }
 
-.daily-overview-div .div-icon i.material-icons {
+.daily-date-div .div-icon i.material-icons {
   font-size: 4rem;
   cursor: pointer;
 }
 
-.daily-overview-div .div-info {
+.daily-date-div .div-info {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -129,11 +129,11 @@ body {
           justify-content: center;
 }
 
-.daily-overview-div .div-info__h1 {
+.daily-date-div .div-info__h1 {
   color: #fff;
 }
 
-.daily-overview-div .div-info__p {
+.daily-date-div .div-info__p {
   color: rgba(255, 255, 255, 0.7);
 }
 
@@ -205,6 +205,7 @@ body {
 ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓*/
 .stats-div {
   width: 100%;
+  margin-bottom: 2rem;
 }
 
 .stats-div > * {
