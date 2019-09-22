@@ -1,0 +1,63 @@
+/*
+--- Width ---
+1em = 16px      (em is best for media queries)
+
+1800px +:                   fz: 75% (12px)      Big desktop
+1200 - 1800px (112.5em):    fz: 62.5% (10px)    Most of desktop/laptop screens
+1024 - 1366px (85.375em):   fz: 62.5% (10px)    iPad Pro (1024 x 1366)
+ 900 - 1200px (75em):       fz: 56.25% (9px)    Tablet landscape
+ 768 -  900px (56.25em):    fz: 56.25% (9px)    iPad (768 x 1024)
+ 600 -  900px (56.25em):    fz: 50% (8px)       Tablet portrait
+ 600 -  768px (48em);                           Tablet
+ 480 -  600px (37.5em):                         Phones
+ 360 -  480px (30em):
+ 320 -  360px (22.5em):                         Galaxy S5, Sony Xperia M4 Aqua
+   0 -  320px (20em):                           iphone SE
+*/
+
+/*-------------------------------- < 480px --------------------------------*/
+@media only screen and (max-width: 30em) {
+    html {
+        font-size: 56.25%;
+    }
+    .shell {
+        width: 100vw;
+        height: 100vh;
+        overflow: hidden;
+    }
+    .days-div {
+        margin: 1.75rem auto;
+    }
+    .daily-stats-div {
+        padding: 3rem 1rem;
+
+        .results-div {
+            margin-top: 3rem;
+        }
+    }
+}
+
+/*------------------------- iPhone X (375px x 812px) -------------------------*/
+@media only screen and (max-width: 23.4375em) and (min-height: 50.75em) {
+    html {
+        font-size: 62.5%;
+    }
+    .days-div {
+        margin: 3rem auto;
+    }
+    .daily-stats-div {
+        height: 55.45rem;
+        padding: 4rem 1rem 3rem;
+
+        .results-div {
+            margin-top: auto;
+        }
+    }
+}
+
+/*-------------------------------- < 320px --------------------------------*/
+@media only screen and (max-width: 20em) {
+    html {
+        font-size: 50%;
+    }
+}
