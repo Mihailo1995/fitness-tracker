@@ -149,12 +149,14 @@ body {
         align-items: center;
         justify-content: center;
         display: none;
+        transition: transform .3s ease-out;
 
         &:hover,
         &:active {
             background-color: $color-white;
             color: $color-amazonite;
             box-shadow: 0 0.3rem 0.9rem rgba($color-black, 0.1);
+            transform: scale(1.05);
         }
 
         & > span {

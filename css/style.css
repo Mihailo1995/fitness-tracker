@@ -179,6 +179,10 @@ body {
       -ms-flex-pack: center;
           justify-content: center;
   display: none;
+  -webkit-transition: -webkit-transform .3s ease-out;
+  transition: -webkit-transform .3s ease-out;
+  transition: transform .3s ease-out;
+  transition: transform .3s ease-out, -webkit-transform .3s ease-out;
 }
 
 .days-div .day:hover, .days-div .day:active {
@@ -186,6 +190,8 @@ body {
   color: #00b6a3;
   -webkit-box-shadow: 0 0.3rem 0.9rem rgba(0, 0, 0, 0.1);
           box-shadow: 0 0.3rem 0.9rem rgba(0, 0, 0, 0.1);
+  -webkit-transform: scale(1.05);
+          transform: scale(1.05);
 }
 
 .days-div .day > span {
