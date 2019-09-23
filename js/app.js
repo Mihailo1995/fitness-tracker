@@ -4,7 +4,7 @@ const Data = (function () {
         fetch("https://api.myjson.com/bins/1gwnal")
             .then(response => response.json())
             .then(data => UI.drawData(data))
-            .catch((err) => console.error(err));
+            .catch(err => console.error(err));
     }
 
     return {
@@ -78,12 +78,19 @@ const UI = (function () {
             }
         }
 
-        // Filter steps in every data object for each day
-        const filterStepsByDay = (n) => {
-            let stepsByDay = data.filter(obj => (new Date(obj.timestamp).getDay() === n))
-                .map(obj => obj.steps)
-                .reduce((total, num) => total + num, 0);
-            return stepsByDay;
+        // Go to daily screen
+        const goToDailyScreen = () => {
+            welcomeDiv.style.display = "none";
+            statsDiv.style.display = "none";
+            dailyDateDiv.style.display = "flex";
+            dailyStatsDiv.style.display = "flex";
+            // Reset animation for each click on day.div
+            dailyDateDiv.classList.remove("animated", "bounceInDown");
+            dailyStatsDiv.classList.remove("animated", "bounceInUp");
+            void dailyDateDiv.offsetWidth;
+            void dailyStatsDiv.offsetWidth;
+            dailyDateDiv.classList.add("animated", "bounceInDown");
+            dailyStatsDiv.classList.add("animated", "bounceInUp");
         }
 
         // Go back to the home screen
@@ -98,65 +105,38 @@ const UI = (function () {
             caloriesDiv.classList.add("animated", "bounceInUp");
         }
 
+        // Filter steps in every data object for each day
+        const filterStepsByDay = (n) => {
+            let stepsByDay = data.filter(obj => (new Date(obj.timestamp).getDay() === n))
+                .map(obj => obj.steps)
+                .reduce((total, num) => total + num, 0);
+            return stepsByDay;
+        }
+
         // Show statistics by day
         const showDailyStats = (n) => {
-            welcomeDiv.style.display = "none";
-            statsDiv.style.display = "none";
-            dailyDateDiv.style.display = "flex";
-            dailyStatsDiv.style.display = "flex";
-            // Reset animation for each click on day.div
-            dailyDateDiv.classList.remove("animated", "bounceInDown");
-            dailyStatsDiv.classList.remove("animated", "bounceInUp");
-            void dailyDateDiv.offsetWidth;
-            void dailyStatsDiv.offsetWidth;
-            dailyDateDiv.classList.add("animated", "bounceInDown");
-            dailyStatsDiv.classList.add("animated", "bounceInUp");
-            let dailySteps = filterStepsByDay(n);
+            goToDailyScreen();
+            // Day of week
+            let dayOfWeek = daysOfWeek[n];
+            // Date in custom format (June 10, 2019.)
+            let date = `${months[new Date(data[n].timestamp).getMonth()]} ${daysOfMonthSetArr[n - 1]}, ${new Date(data[n].timestamp).getFullYear()}.`;
+            // Daily steps
+            let daySteps = filterStepsByDay(n);
+            // Daily km passed
+            let dailyKm = parseFloat((daySteps * 0.762 / 1000).toFixed(1));
+            // Daily calories burned
+            let dailyCal = Math.round(daySteps * 0.05);
+            // Daily time in minutes
+            let dailyTime = Math.round(daySteps * 0.5 / 60);
 
-            // Draw div.daily-date-div
-            dailyDateDiv.innerHTML = `
-                <div class="div-icon">
-                    <i class="material-icons" id="back-icon">chevron_left</i>
-                </div>
-                <div class="div-info">
-                    <h1 class="div-info__h1" id="day">${daysOfWeek[n]}</h1>
-                    <p class="div-info__p" id="date">
-                    ${months[new Date(data[n].timestamp).getMonth()]} ${daysOfMonthSetArr[n - 1]}, ${new Date(data[n].timestamp).getFullYear()}.
-                    </p>
-                </div>
-            `;
+            document.querySelector("#day-of-week").textContent = dayOfWeek;
+            document.querySelector("#date").textContent = date;
+            document.querySelector("#daily-steps").textContent = daySteps.toLocaleString();
+            document.querySelector("#daily-km").textContent = dailyKm;
+            document.querySelector("#daily-cal").textContent = dailyCal;
+            document.querySelector("#daily-time").textContent = dailyTime;
 
-            // Draw div.daily-stats-div
-            dailyStatsDiv.innerHTML = `
-                <div class="circle-div">
-                    <div class="div-icon">
-                        <i class="material-icons">directions_run</i>
-                    </div>
-                    <h3 class="label-h3">Steps</h3>
-                    <h1 class="number-h1" id="day-steps">${dailySteps.toLocaleString()}</h1>
-                </div>
-
-                <div class="motivation-div">
-                    <h3 class="label-h3">Very good</h3>
-                    <h2 class="label-h2">Keep going!</h2>
-                </div>
-
-                <div class="results-div">
-                    <div class="km-div">
-                        <h4 class="label-h4">km</h4>
-                        <h2 class="number-h2">${parseFloat((dailySteps * 0.762 / 1000).toFixed(1))}</h2>
-                    </div>
-                    <div class="cal-div">
-                        <h4 class="label-h4">cal</h4>
-                        <h2 class="number-h2">${Math.round(dailySteps * 0.05)}</h2>
-                    </div>
-                    <div class="hours-div">
-                        <h4 class="label-h4">min</h4>
-                        <h2 class="number-h2">${Math.round(dailySteps * 0.5 / 60)}</h2>
-                    </div>
-                </div>
-            `;
-
+            // backToHomeScreen listener
             document.querySelector("#back-icon").addEventListener("click", backToHomeScreen);
         }
 
